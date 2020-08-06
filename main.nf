@@ -1,6 +1,6 @@
-inputCh = Channel.fromPath( '/Users/gerbix/Downloads/nf_refseq_download/just_bacteria/*.txt' )
-PARSEREFSEQ=file('/Users/gerbix/Downloads/nf_refseq_download/parse_refseq.py')
-NUCLTOGB=file("/Users/gerbix/Downloads/nucl_gb.accession2taxid")
+inputCh = Channel.fromPath( 's3://clomp-reference-data/aligner-testing/bacteria_refseq/*.txt' )
+PARSEREFSEQ=file('s3://clomp-reference-data/aligner-testing/parse_refseq.py')
+NUCLTOGB=file("s3://clomp-reference-data/aligner-testing/nucl_gb.accession2taxid")
 
 process download {
   publishDir 's3://clomp-reference-data/aligner-testing/refseq_bacteria_only_annotated_fastas/'
